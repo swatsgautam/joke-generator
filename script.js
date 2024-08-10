@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
 
     const jokeButton = document.getElementById('joke-btn');
     const jokeDisplay = document.getElementById('joke');
@@ -39,4 +39,49 @@ document.addEventListener('DOMContentLoaded', function() {
     jokeButton.addEventListener('click', getJoke); // Add an event listener to the button to trigger the joke generation
 
     getJoke();  //fetch a joke when the page first loads
+});
+
+*/
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const jokeButton = document.getElementById('joke-btn');
+    const jokeDisplay = document.getElementById('joke');
+    const container = document.querySelector('.container');
+    
+    function getJoke() { 
+        
+        fetch('https://api.chucknorris.io/jokes/random') 
+            .then(response => {
+                if (!response.ok) { 
+                    throw new Error('network failure');
+                }
+                return response.json(); 
+            })
+            .then(data => {
+                const joke = data.value; 
+                jokeDisplay.innerHTML = joke; 
+                setRandomColor();
+            })
+            .catch(error => {
+                console.error('there is a problem ', error);
+                jokeDisplay.innerHTML = 'Something went wrong.'; 
+            });
+    }
+    function setRandomColor() {
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        container.style.backgroundColor = randomColor; 
+    }
+    
+    jokeButton.addEventListener('click', getJoke); 
+
+    getJoke(); 
 });

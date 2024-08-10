@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #686de0;
+  background-color: #fff;
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
@@ -24,13 +24,15 @@ body {
   padding: 50px 20px;
   text-align: center;
   max-width: 100%;
-  width: 800px;
+  width: 600px;
+  margin-bottom: 20px;
 }
 
 h3 {
   margin: 0;
-  opacity: 0.5;
   letter-spacing: 2px;
+  font-size:20px;
+  margin-bottom:20px;
 }
 
 .joke {
@@ -41,21 +43,33 @@ h3 {
   max-width: 600px;
 }
 
+.button-box {
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn {
-  background-color: #9f68e0;
-  color: #fff;
-  border: 0;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-  padding: 14px 40px;
-  font-size: 16px;
-  cursor: pointer;
+    background: #1bbbac;
+    color: #383b3a;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px #777777, inset 0 0 0px #777777;
+    transition: transform 200ms;
+    padding: 14px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: #1bb7a9;
+    box-shadow: 0 0px 0px #777777, inset 0 0 10px #777777;
 }
 
 .btn:active {
-  transform: scale(0.98);
-}
-
-.btn:focus {
-  outline: 0;
+    transform: scale(0.98);
 }
